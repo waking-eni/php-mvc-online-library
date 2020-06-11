@@ -1,8 +1,13 @@
 # php-mvc-online-library
 Online library\
-OOP PHP, MVC, HTML, CSS, jQuery, Bootstrap, MySQL, WampServer
+OOP PHP, MVC, HTML, CSS, jQuery, Bootstrap, MySQL, WampServer\
+Back-end: OOP PHP and MySQL for database.\
+Design pattern: MVC (without a framework).\
+Front-end: CSS, Bootstrap, jQuery.\
+Server: Apache (using WampServer).
 ***
-Still working on it.
+Still working on it.\
+I built the model and parts of controller and view.
 ***
 #### Functionalities I've implemented so far:
 * Listing all categories in the sidebar

@@ -13,10 +13,10 @@
                     if(isset($_SESSION['userUsername']) || isset($_SESSION['adminUsername'])) {
                         echo '<a class="dropdown-item" href="#">Log Out</a>';
                     } else {
-                        echo '<a class="dropdown-item" href="#">User Log In</a>';
-                        echo '<a class="dropdown-item" href="#">Admin Log In</a>';
+                        echo '<a class="dropdown-item" href="loginUser.php">User Log In</a>';
+                        echo '<a class="dropdown-item" href="../loginAdmin.php">Admin Log In</a>';
                         echo '<div class="dropdown-divider"></div>';
-                        echo '<a class="dropdown-item" href="#">Sign Up</a>';
+                        echo '<a class="dropdown-item" href="../signUp.php">Sign Up</a>';
                     }
                 ?>
             </div>

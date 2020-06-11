@@ -42,7 +42,7 @@
 
 <h1 class="text-center mt-5">Sign up</h1>
 
-<form class="center-div" name="loginForm" action="../includes/signup.inc.php" method="post" onsubmit="return(validate());">
+<form class="center-div" name="loginForm" action="../inc.scripts/signup.inc.php" method="post" onsubmit="return(validate());">
     <input class="d-block my-3" type="text" name="ufull" placeholder="Full name">
     <p id="userFullname"></p>    
     <input class="d-block my-3" type="text" name="uid" placeholder="Username">

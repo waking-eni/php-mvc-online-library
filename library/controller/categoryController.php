@@ -21,7 +21,7 @@ class CategoryController {
     public function selectCategory($id) {
         $controller = $this->getController();
         $sql = "SELECT id, name FROM category WHERE id = ?;";
-        $result = $controller->selectRecord($sql, $id);
+        $result = $controller->oneParamRecord($sql, $id);
         return $result;
     }
 
@@ -30,7 +30,7 @@ class CategoryController {
         $controller = $this->getController();
         $sql = "INSERT INTO category (name, creation_date) VALUES (?, ?);";
         $type = 'ss';
-        $controller->insertRecord($sql, $values, $type);
+        $controller->arrayParamRecord($sql, $values, $type);
     }
 
     /* update category */
@@ -38,14 +38,14 @@ class CategoryController {
         $controller = $this->getController();
         $sql = "UPDATE category SET name = ?, update_date = ? WHERE id = ?;";
         $type = 'ss';
-        $controller->insertRecord($sql, $values, $type);
+        $controller->arrayParamRecord($sql, $values, $type);
     }
 
     /* delete category */
     public function deleteCategory($id) {
         $controller = $this->getController();
         $sql = "DELETE FROM category WHERE id = ?;";
-        $controller->deleteRecord($sql, $id);
+        $controller->oneParamRecord($sql, $id);
     }
 
 }

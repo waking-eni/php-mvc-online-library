@@ -21,7 +21,7 @@ class UserController {
     public function selectUser($id) {
         $controller = $this->getController();
         $sql = "SELECT id, fullname, email, phone FROM user WHERE id = ?;";
-        $result = $controller->selectRecord($sql, $id);
+        $result = $controller->oneParamRecord($sql, $id);
         return $result;
     }
 
@@ -30,7 +30,7 @@ class UserController {
         $controller = $this->getController();
         $sql = "INSERT INTO user (fullname, username, password, email, phone, register_date) VALUES (?, ?, ?, ?);";
         $type = 'ssss';
-        $controller->insertRecord($sql, $values, $type);
+        $controller->arrayParamRecord($sql, $values, $type);
     }
 
     /* update user */
@@ -38,22 +38,31 @@ class UserController {
         $controller = $this->getController();
         $sql = "UPDATE user SET fullname = ?, username = ?, password = ? email = ?, phone = ?, update_date = ? WHERE id = ?;";
         $type = 'ssssss';
-        $controller->insertRecord($sql, $values, $type);
+        $controller->arrayParamRecord($sql, $values, $type);
     }
 
     /* delete user */
     public function deleteUser($id) {
         $controller = $this->getController();
         $sql = "DELETE FROM user WHERE id = ?;";
-        $controller->deleteRecord($sql, $id);
+        $controller->oneParamRecord($sql, $id);
     }
 
     /* check username */
     public function checkUsername($username) {
         $controller = $this->getController();
         $sql = "SELECT username FROM user WHERE username = ?;";
-        $result = $controller->selectRecord($sql, $username);
-        return $result->num_rows;
+        $result = $controller->oneParamRecord($sql, $username);
+        return $result;
+    }
+
+    /* login check */
+    public function checkLogin($values) {
+        $controller = $this->getController();
+        $sql = "SELECT * FROM user WHERE username = ? OR email = ? ;";
+        $type = 'ss';
+        $result = $controller->arrayParamRecord($sql, $values, $type);
+        return $result;
     }
 
 }

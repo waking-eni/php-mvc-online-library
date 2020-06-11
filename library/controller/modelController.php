@@ -1,20 +1,33 @@
 <?php
 
-require_once __DIR__.'/../config.php';
+/* Database handler */
 
-/* class with methods that handle database data */
+define('host', 'localhost');
+define('user', 'root');
+define('pass', '');
+define('database', 'online-library');
+define('port', '3308');
 
 Class ModelController {
 
-    public function connect()
-    {
-        $db = Database::getInstance();
-        return $db;
+    private $con = null;
+
+    public function __construct() {
+        try {
+            $this->con = new mysqli(host, user, pass, database, port);
+        } catch (Exception $e) {
+            die ('Unable to connect to the database.');
+        }
+    }
+
+    public function __destruct() {
+        if($this->con) {
+            $this->con->close();
+        }
     }
 
     public function fetchRecords($sql) {
-        $db = $this->connect();
-        $stmt = $db->stmt_init();
+        $stmt = $this->con->stmt_init();
         if(!$stmt->prepare($sql)) {
             throw new \Exception( 'Prepare failed' );
         } else {
@@ -30,8 +43,7 @@ Class ModelController {
     }
 
     public function oneParamRecord($sql, $id) {
-        $db = $this->connect();
-        $stmt = $db->stmt_init();
+        $stmt = $this->con->stmt_init();
         if(!$stmt->prepare($sql)) {
             throw new \Exception( 'Prepare failed' );
         } else {
@@ -49,8 +61,7 @@ Class ModelController {
 
     // values is an array, so call_user_func_array is used to bind parameters
     public function arrayParamRecord($sql, $values, $type) {
-        $db = $this->connect();
-        $stmt = $db->stmt_init();
+        $stmt = $this->con->stmt_init();
         if(!$stmt->prepare($sql)) {
             throw new \Exception( 'Prepare failed' );
         } else {

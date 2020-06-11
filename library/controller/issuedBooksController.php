@@ -21,7 +21,7 @@ class IssuedBooksController {
     public function selectIssuedBook($id) {
         $controller = $this->getController();
         $sql = "SELECT * FROM issued_books WHERE id = ?;";
-        $result = $controller->selectRecord($sql, $id);
+        $result = $controller->oneParamRecord($sql, $id);
         return $result;
     }
 
@@ -31,7 +31,7 @@ class IssuedBooksController {
         $sql = "INSERT INTO issued_books (issued_date, return_date, fine, book_id, user_id) 
                 VALUES (?, ?, ?, ?, ?);";
         $type = 'sssii';
-        $controller->insertRecord($sql, $values, $type);
+        $controller->arrayParamRecord($sql, $values, $type);
     }
 
     /* update issued book */
@@ -40,14 +40,14 @@ class IssuedBooksController {
         $sql = "UPDATE issued_books SET issued_date = ?, return_date = ?, fine = ?, book_id = ?, user_id = ? 
                 WHERE id = ?;";
         $type = 'sssii';
-        $controller->insertRecord($sql, $values, $type);
+        $controller->arrayParamRecord($sql, $values, $type);
     }
 
     /* delete issued book */
     public function deleteIssuedBook($id) {
         $controller = $this->getController();
         $sql = "DELETE FROM issued_books WHERE id = ?;";
-        $controller->deleteRecord($sql, $id);
+        $controller->oneParamRecord($sql, $id);
     }
 
 }

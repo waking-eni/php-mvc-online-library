@@ -59,7 +59,7 @@ class UserController {
     /* login check */
     public function checkLogin($values) {
         $controller = $this->getController();
-        $sql = "SELECT * FROM user WHERE username = ? OR email = ? ;";
+        $sql = "SELECT id, username, password FROM user WHERE username = ? OR email = ? ;";
         $type = 'ss';
         $result = $controller->arrayParamRecord($sql, $values, $type);
         return $result;

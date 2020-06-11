@@ -21,7 +21,7 @@ class AuthorController {
     public function selectAuthor($id) {
         $controller = $this->getController();
         $sql = "SELECT id, name FROM author WHERE id = ?;";
-        $result = $controller->selectRecord($sql, $id);
+        $result = $controller->oneParamRecord($sql, $id);
         return $result;
     }
 
@@ -30,7 +30,7 @@ class AuthorController {
         $controller = $this->getController();
         $sql = "INSERT INTO author (name, creation_date) VALUES (?, ?);";
         $type = 'ss';
-        $controller->insertRecord($sql, $values, $type);
+        $controller->arrayParamRecord($sql, $values, $type);
     }
 
     /* update author */
@@ -38,14 +38,14 @@ class AuthorController {
         $controller = $this->getController();
         $sql = "UPDATE author SET name = ?, update_date = ? WHERE id = ?;";
         $type = 'ss';
-        $controller->insertRecord($sql, $values, $type);
+        $controller->arrayParamRecord($sql, $values, $type);
     }
 
     /* delete author */
     public function deleteRecord($id) {
         $controller = $this->getController();
         $sql = "DELETE FROM author WHERE id = ?;";
-        $controller->deleteRecord($sql, $id);
+        $controller->oneParamRecord($sql, $id);
     }
     
 }

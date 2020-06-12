@@ -14,9 +14,7 @@
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
     crossorigin="anonymous"></script>
     <!-- STYLE -->
-    <link href="../assets/css/style.css" rel="stylesheet" />
-    <!-- JQUERY -->
-    <script href="../assets/js/jquery-3.5.1.js"></script>
+    <link href="../css/style.css" rel="stylesheet" />
     <title>Online Library</title>
 </head>
 
@@ -31,32 +29,59 @@
 <!-- MAIN -->
 <div class="wrapper">
 
-<!-- SIDEBAR -->
-<?php
-    include 'includes/sidebar.php';
-?>
-<!-- SIDEBAR END -->
+<!-- WRAPPER -->
+<div class="container-fluid wrapper-container">
+    <div class="row row-wrapper mt-5">
 
-<!-- LOGIN -->
-<main class="col-9 main">
+    <!-- SIDEBAR -->
+    <?php
+        include 'includes/sidebar.php';
+    ?>
+    <!-- SIDEBAR END -->
 
-<h1 class="text-center mt-5">Admin Log In</h1>
+    <!-- LOGIN -->
+    <main class="col-9 main">
 
-<form class="center-div" name="loginForm" action="../inc.scripts/loginadmin.inc.php" method="post" onsubmit="return(validate());">
-    <input type="text" name="mailuid" placeholder="E-mail/Username">
-    <p id="adminMailName"></p>
-    <input class="d-block my-3" type="password" name="pwd" placeholder="Password">
-    <p id="adminPwd"></p>
-    <button class="d-block my-3 btn btn-dark float-right" type="submit" name="login-submit">Log In</button>
-</form>
+    <h1 class="text-center mt-5">Admin Log In</h1>
 
-</main>
-<!-- LOGIN END -->
+    <form class="center-div" name="loginForm" action="../inc.scripts/loginadmin.inc.php" method="post" onsubmit="return(validate());">
+        <div class="form-group">    
+            <input class="form-control" type="text" name="mailuid" placeholder="E-mail/Username">
+            <p id="adminMailName"></p>
+            <input class="form-control" type="password" name="pwd" placeholder="Password">
+            <p id="adminPwd"></p>
+            <button class="d-block my-3 btn btn-dark float-right" type="submit" name="login-submit">Log In</button>
+        </div>
+    </form>
+
+    </main>
+    <!-- LOGIN END -->
+
+    </div>
+</div>
+<!-- WRAPPER END -->
 
 </div>
 <!-- MAIN END -->
 
-<script href="../assets/js/effects.js"></script>
+<script>
+
+// client side validation
+function validate() {
+    
+    if(document.forms["loginForm"]["mailuid"].value == "") {
+        document.getElementById("adminMailName").innerHTML = "Please provide your E-mail/Username";
+        document.forms["loginForm"]["mailuid"].focus();
+        return false;
+    }
+    if(document.forms["loginForm"]["pwd"].value == "") {
+        document.getElementById("adminPwd").innerHTML = "Please provide your password";
+        document.forms["loginForm"]["pwd"].focus();
+        return false;
+    }
+}
+
+</script>
 </body>
 
 </html>

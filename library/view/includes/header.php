@@ -44,6 +44,6 @@
 <!-- JUMBOTRON -->
 <div class="jumbotron jumbotron-fluid jumbotron-header mb-0 py-2">
     <div class="container">
-        <h2 class="display-4 text-center"><a href="../index.php" class="red-font">Online Library</a></h2>
+        <h2 class="display-4 text-center"><a href="../index.php" class="yellow-font">Online Library</a></h2>
     </div>
 </div>

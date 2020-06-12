@@ -16,6 +16,7 @@ In progress.
 * Separate log in for users and administrators
 * Sign up
 * Log out
+* User profile with user and issued books information
 * Server side validation
 * SQL injection prevention
 * Session

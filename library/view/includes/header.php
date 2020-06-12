@@ -11,12 +11,12 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <?php
                     if(isset($_SESSION['userUsername']) || isset($_SESSION['adminUsername'])) {
-                        echo '<a class="dropdown-item" href="#">Log Out</a>';
+                        echo '<a class="dropdown-item" href="../inc.scripts/logout.inc.php">Log Out</a>';
                     } else {
                         echo '<a class="dropdown-item" href="loginUser.php">User Log In</a>';
-                        echo '<a class="dropdown-item" href="../loginAdmin.php">Admin Log In</a>';
+                        echo '<a class="dropdown-item" href="loginAdmin.php">Admin Log In</a>';
                         echo '<div class="dropdown-divider"></div>';
-                        echo '<a class="dropdown-item" href="../signUp.php">Sign Up</a>';
+                        echo '<a class="dropdown-item" href="signUp.php">Sign Up</a>';
                     }
                 ?>
             </div>
@@ -44,6 +44,6 @@
 <!-- JUMBOTRON -->
 <div class="jumbotron jumbotron-fluid jumbotron-header mb-0 py-2">
     <div class="container">
-        <h2 class="display-4 text-center"><a href="../index.php" class="yellow-font">Online Library</a></h2>
+        <h2 class="display-4 text-center"><a href="index.php" class="yellow-font">Online Library</a></h2>
     </div>
 </div>

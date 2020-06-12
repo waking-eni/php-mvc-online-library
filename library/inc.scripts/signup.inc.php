@@ -52,7 +52,7 @@ if(isset($_POST['signup-submit'])) {
             //send values by reference because call_user_func_array expects it
             $values = array(&$fullname, &$username, &$hashedPwd, &$email, &$phone, &$registerDate);
             $userController->insertUser($values);
-            header("Location: ../public/loginUser.php?signup=success");
+            header("Location: ../view/loginUser.php?signup=success");
             exit();
 		}
 	}

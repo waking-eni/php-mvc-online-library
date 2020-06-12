@@ -12,7 +12,7 @@ class UserController {
     /* select all users from the database */
     public function fetchUsers($offset, $total_records_per_page) {
         $controller = $this->getController();
-        $sql = "SELECT id, fullname, email, phone FROM user
+        $sql = "SELECT id, fullname, username, email, phone FROM user
         ORDER BY id DESC LIMIT $offset, $total_records_per_page;";
         $result = $controller->fetchRecords($sql);
         return $result;
@@ -21,7 +21,7 @@ class UserController {
     /* select user */
     public function selectUser($id) {
         $controller = $this->getController();
-        $sql = "SELECT id, fullname, email, phone FROM user WHERE id = ?;";
+        $sql = "SELECT id, fullname, username, email, phone FROM user WHERE id = ?;";
         $result = $controller->oneParamRecord($sql, $id);
         return $result;
     }

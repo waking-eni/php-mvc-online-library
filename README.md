@@ -1,9 +1,9 @@
 # php-mvc-online-library
 Online library\
-OOP PHP, MVC, HTML, CSS, jQuery, Bootstrap, MySQL, WampServer\
+OOP PHP, MVC, HTML, CSS, JavaScript, Bootstrap, MySQL, WampServer\
 Back-end: OOP PHP and MySQL for the database.\
 Design pattern: MVC (without a framework).\
-Front-end: CSS, Bootstrap, jQuery.\
+Front-end: CSS, Bootstrap, JavaScript.\
 Server: Apache (using WampServer).
 ***
 In progress.

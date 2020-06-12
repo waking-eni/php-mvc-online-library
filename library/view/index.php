@@ -44,9 +44,9 @@ session_status() === PHP_SESSION_ACTIVE ? TRUE : session_start();
 
 
         <!-- MAIN -->
-        <main class="col-9 main">
-
-        </main>
+        <?php
+            include 'includes/main.php';
+        ?>
         <!-- MAIN END -->
 
     </div>

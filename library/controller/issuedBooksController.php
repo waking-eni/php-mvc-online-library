@@ -25,6 +25,17 @@ class IssuedBooksController {
         return $result;
     }
 
+    /* select all issued books of a user */
+    public function selectUserIssuedBooks($id) {
+        $controller = $this->getController();
+        $sql = "SELECT * FROM issued_books 
+        LEFT JOIN book
+        ON book.id = issued_books.book_id
+        WHERE issued_books.user_id = ?;";
+        $result = $controller->oneParamRecord($sql, $id);
+        return $result;
+    }
+
     /* insert issued book */
     public function insertIssuedBook($values) {
         $controller = $this->getController();

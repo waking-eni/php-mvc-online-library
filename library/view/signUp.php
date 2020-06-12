@@ -14,7 +14,7 @@
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
     crossorigin="anonymous"></script>
     <!-- STYLE -->
-    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
     <!-- JQUERY -->
     <script href="../assets/js/jquery-3.5.1.js"></script>
     <title>Online Library</title>
@@ -42,7 +42,7 @@
 
 <h1 class="text-center mt-5">Sign up</h1>
 
-<form class="center-div" name="loginForm" action="../inc.scripts/signup.inc.php" method="post" onsubmit="return(validate());">
+<form class="center-div" name="signupForm" action="../inc.scripts/signup.inc.php" method="post" onsubmit="return(validate());">
     <input class="d-block my-3" type="text" name="ufull" placeholder="Full name">
     <p id="userFullname"></p>    
     <input class="d-block my-3" type="text" name="uid" placeholder="Username">
@@ -53,7 +53,7 @@
     <p id="userPhone"></p>
     <input class="d-block my-3" type="password" name="pwd" placeholder="Password">
     <p id="userPwdd"></p>
-    <input class="d-block my-3" type="password" name="pwd-repeat" placeholder="Repeat password">
+    <input class="d-block my-3" type="password" name="pwdrepeat" placeholder="Repeat password">
     <p id="userPwddRep"></p>
     <button class="d-block my-3 btn btn-dark float-right" type="submit" name="signup-submit">Sign Up</button>
 </form>
@@ -64,7 +64,42 @@
 </div>
 <!-- MAIN END -->
 
-<script href="../assets/js/effects.js"></script>
+<script>
+
+function validate() {
+    if(document.forms["signupForm"]["ufull"].value == "") {
+        document.getElementById("userFullname").innerHTML = "Please provide your Full Name";
+        document.forms["signupForm"]["ufull"].focus();
+        return false;
+    }
+    if(document.forms["signupForm"]["uphone"].value == "") {
+        document.getElementById("userPhone").innerHTML = "Please provide your Phone";
+        document.forms["signupForm"]["uid"].focus();
+        return false;
+    }
+    if(document.forms["signupForm"]["uid"].value == "") {
+        document.getElementById("userName").innerHTML = "Please provide your Username";
+        document.forms["signupForm"]["uid"].focus();
+        return false;
+    }
+    if(document.forms["signupForm"]["mail"].value == "") {
+        document.getElementById("userMail").innerHTML = "Please provide your E-mail";
+        document.forms["loginForm"]["mail"].focus();
+        return false;
+    }
+    if(document.forms["signupForm"]["pwd"].value == "") {
+        document.getElementById("userPwdd").innerHTML = "Please provide your Password";
+        document.forms["signupForm"]["pwd"].focus();
+        return false;
+    }
+    if(document.forms["signupForm"]["pwd-repeat"].value == "") {
+        document.getElementById("userPwddRep").innerHTML = "Please repeat your Password";
+        document.forms["signupForm"]["pwd-repeat"].focus();
+        return false;
+    }
+}
+
+</script>
 </body>
 
 </html>

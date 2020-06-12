@@ -29,8 +29,8 @@ class UserController {
     /* insert user */
     public function insertUser($values) {
         $controller = $this->getController();
-        $sql = "INSERT INTO user (fullname, username, password, email, phone, register_date) VALUES (?, ?, ?, ?);";
-        $type = 'ssss';
+        $sql = "INSERT INTO user (fullname, username, password, email, phone, register_date) VALUES (?, ?, ?, ?, ?, ?);";
+        $type = 'ssssss';
         $controller->arrayParamRecord($sql, $values, $type);
     }
 

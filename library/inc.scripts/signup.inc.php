@@ -10,7 +10,7 @@ if(isset($_POST['signup-submit'])) {
     $email = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['mail']);
     $phone = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['uphone']);
 	$password = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['pwd']);
-    $passwordRepeat = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['pwd-repeat']);
+    $passwordRepeat = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['pwdrepeat']);
     
     $userController = new UserController();
     $registerDate = date('Y-m-d H:i:s');
@@ -43,7 +43,7 @@ if(isset($_POST['signup-submit'])) {
 	else {
 		//does the chosen username already exist
 		$resultCheck = $userController->checkUsername($username);
-		if($resultCheck > 0) {
+		if(!empty($resultCheck)) {
 			header("Location: ../view/signUp.php?error=usertaken&mail=".$email);
 			exit();
 		} else {

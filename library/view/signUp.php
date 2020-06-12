@@ -26,6 +26,9 @@
 ?>
 <!-- HEADER END -->
 
+<!-- MAIN -->
+<div class="wrapper">
+
 <!-- WRAPPER -->
 <div class="container-fluid wrapper-container">
     <div class="row row-wrapper mt-5">
@@ -36,10 +39,10 @@
         ?>
         <!-- SIDEBAR END -->
 
-        <!-- MAIN -->
+        <!-- SIGN UP -->
         <main class="mainn col-9">
 
-        <h1 class="text-left">Sign up</h1>
+        <h1 class="text-center">Sign up</h1>
 
         <form class="center-div" name="signupForm" action="../inc.scripts/signup.inc.php" method="post" onsubmit="return(validate());">
             <div class="form-group">
@@ -58,19 +61,23 @@
                 <p id="userPwdd"></p>
                 <input class="form-control" type="password" name="pwdrepeat" placeholder="Repeat password">
                 <p id="userPwddRep"></p>
-                <button class="d-block my-3 btn btn-dark float-left" type="submit" name="signup-submit">Sign Up</button>
+                <button class="d-block my-3 btn btn-dark float-right" type="submit" name="signup-submit">Sign Up</button>
             </div>
         </form>
 
         </main>
-        <!--MAIN END-->
+        <!--SIGN UP END END-->
 
     </div>
 </div>
 <!-- WRAPPER END -->
 
+</div>
+<!-- MAIN END -->
+
 <script>
 
+// client side validation
 function validate() {
     if(document.forms["signupForm"]["ufull"].value == "") {
         document.getElementById("userFullname").innerHTML = "Please provide your Full Name";

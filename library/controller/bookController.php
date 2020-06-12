@@ -26,6 +26,15 @@ class BookController {
         return $result;
     }
 
+    /* select book by category */
+    public function selectBookByCat($cat, $offset, $total_records_per_page) {
+        $controller = $this->getController();
+        $sql = "SELECT id, name, author_id FROM book WHERE category_id = ?
+        ORDER BY name DESC LIMIT $offset, $total_records_per_page;";
+        $result = $controller->oneParamRecord($sql, $cat);
+        return $result;
+    }
+
     /* insert book */
     public function insertBook($values) {
         $controller = $this->getController();

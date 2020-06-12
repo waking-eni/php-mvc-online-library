@@ -42,7 +42,7 @@ class AuthorController {
     }
 
     /* delete author */
-    public function deleteRecord($id) {
+    public function deleteAuthor($id) {
         $controller = $this->getController();
         $sql = "DELETE FROM author WHERE id = ?;";
         $controller->oneParamRecord($sql, $id);

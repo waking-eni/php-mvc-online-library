@@ -10,9 +10,10 @@ class BookController {
     }
 
     /* select all books from the database */
-    public function fetchBooks() {
+    public function fetchBooks($offset, $total_records_per_page) {
         $controller = $this->getController();
-        $sql = "SELECT id, name, author_id, category_id FROM book;";
+        $sql = "SELECT id, name, author_id, category_id FROM book 
+        ORDER BY name DESC LIMIT $offset, $total_records_per_page;";
         $result = $controller->fetchRecords($sql);
         return $result;
     }
@@ -46,6 +47,14 @@ class BookController {
         $controller = $this->getController();
         $sql = "DELETE FROM book WHERE id = ?;";
         $controller->oneParamRecord($sql, $id);
+    }
+
+    /* get the number of books */
+    public function getNumOfBooks() {
+        $controller = $this->getController();
+        $sql = "SELECT id FROM book ;";
+        $result = $controller->numRows($sql);
+        return $result;
     }
 
 }

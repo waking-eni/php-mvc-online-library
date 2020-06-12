@@ -85,7 +85,7 @@
                                             echo '</div';
                                             //submit
                                             echo '<div class="md-form">';
-                                                if(isset($_SESSION['userUsername']) || isset($_SESSION['adminUsername'])) {
+                                                if(isset($_SESSION['userUsername'])) {
                                                     echo '<button class="d-block my-3 btn btn-warning float-right" type="submit" name="addtoissuedbooks">
                                                         LEND</button>';
                                                 }

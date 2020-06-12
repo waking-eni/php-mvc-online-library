@@ -14,7 +14,7 @@ if(isset($_POST['addtoissuedbooks'])) {
 
     $userId = $_SESSION['userId'];
     $bookId = $_SESSION['bookId'];
-    $fine = 5;
+    $fine = 0;
     $issuedDate = date('Y-m-d H:i:s');
     $returnDate = date("Y-m-d", strtotime('+1 month', $issuedDate));
 

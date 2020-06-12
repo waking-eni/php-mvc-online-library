@@ -10,9 +10,10 @@ class UserController {
     }
 
     /* select all users from the database */
-    public function fetchUsers() {
+    public function fetchUsers($offset, $total_records_per_page) {
         $controller = $this->getController();
-        $sql = "SELECT id, fullname, email, phone FROM user;";
+        $sql = "SELECT id, fullname, email, phone FROM user
+        ORDER BY id DESC LIMIT $offset, $total_records_per_page;";
         $result = $controller->fetchRecords($sql);
         return $result;
     }
@@ -62,6 +63,14 @@ class UserController {
         $sql = "SELECT id, username, password FROM user WHERE username = ? OR email = ? ;";
         $type = 'ss';
         $result = $controller->arrayParamRecord($sql, $values, $type);
+        return $result;
+    }
+
+    /* get the number of users */
+    public function getNumOfUsers() {
+        $controller = $this->getController();
+        $sql = "SELECT id FROM user ;";
+        $result = $controller->numRows($sql);
         return $result;
     }
 

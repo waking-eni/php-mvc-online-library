@@ -26,41 +26,48 @@
 ?>
 <!-- HEADER END -->
 
-<!-- MAIN -->
-<div class="wrapper">
+<!-- WRAPPER -->
+<div class="container-fluid wrapper-container">
+    <div class="row row-wrapper mt-5">
 
-<!-- SIDEBAR -->
-<?php
-    include 'includes/sidebar.php';
-?>
-<!-- SIDEBAR END -->
+        <!-- SIDEBAR -->
+        <?php
+            include 'includes/sidebar.php';
+        ?>
+        <!-- SIDEBAR END -->
 
-<!--main-->
-<main class="main">
+        <!-- MAIN -->
+        <main class="mainn col-9">
 
-<h1 class="text-center mt-5">Sign up</h1>
+        <h1 class="text-left">Sign up</h1>
 
-<form class="center-div" name="signupForm" action="../inc.scripts/signup.inc.php" method="post" onsubmit="return(validate());">
-    <input class="d-block my-3" type="text" name="ufull" placeholder="Full name">
-    <p id="userFullname"></p>    
-    <input class="d-block my-3" type="text" name="uid" placeholder="Username">
-    <p id="userName"></p>
-    <input class="d-block my-3" type="text" name="mail" placeholder="E-mail">
-    <p id="userMail"></p>
-    <input class="d-block my-3" type="text" name="uphone" placeholder="Phone">
-    <p id="userPhone"></p>
-    <input class="d-block my-3" type="password" name="pwd" placeholder="Password">
-    <p id="userPwdd"></p>
-    <input class="d-block my-3" type="password" name="pwdrepeat" placeholder="Repeat password">
-    <p id="userPwddRep"></p>
-    <button class="d-block my-3 btn btn-dark float-right" type="submit" name="signup-submit">Sign Up</button>
-</form>
+        <form class="center-div" name="signupForm" action="../inc.scripts/signup.inc.php" method="post" onsubmit="return(validate());">
+            <div class="form-group">
+                <input class="form-control" type="text" name="ufull" placeholder="Full name">
+                <p id="userFullname"></p>    
+                <input class="form-control" type="text" name="uid" placeholder="Username">
+                <p id="userName"></p>
+                <input class="form-control" type="text" name="mail" placeholder="E-mail">
+                <p id="userMail"></p>
+                <input class="form-control" type="text" name="uphone" placeholder="Phone">
+                <p id="userPhone"></p>
+                <input class="form-control" type="password" name="pwd" placeholder="Password">
+                <small id="passwordHelpInline" class="text-muted">
+                    Must be at least 5 characters long.
+                </small>
+                <p id="userPwdd"></p>
+                <input class="form-control" type="password" name="pwdrepeat" placeholder="Repeat password">
+                <p id="userPwddRep"></p>
+                <button class="d-block my-3 btn btn-dark float-left" type="submit" name="signup-submit">Sign Up</button>
+            </div>
+        </form>
 
-</main>
-<!--end of main-->
+        </main>
+        <!--MAIN END-->
 
+    </div>
 </div>
-<!-- MAIN END -->
+<!-- WRAPPER END -->
 
 <script>
 

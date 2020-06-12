@@ -21,6 +21,7 @@ In progress.
 * SQL injection prevention
 * Session
 * Pagination system
+* Client side validation
 * Showing username of the person who logged in on each page
 * Showing sign in options only when there is no person logged in
 * If a person is logged in, show log out option

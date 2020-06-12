@@ -12,6 +12,7 @@ I built the model and parts of controller and view.
 #### Functionalities I've implemented so far:
 * Displaying a list of books (with desired information), ordered by name descending, on home page
 * Listing all categories in the sidebar, and being able to display all books that belong to chosen category
+* Displaying the chosen book with all its information
 * Separate log in for users and administrators
 * Sign up
 * Log out

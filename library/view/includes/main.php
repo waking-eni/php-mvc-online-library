@@ -1,7 +1,7 @@
 <?php
-    require_once __DIR__.'/../controller/bookController.php';
+    require_once __DIR__.'/../../controller/bookController.php';
 ?>
-<!--main-->
+<!-- MAIN with pagination -->
 <main class="col-9 main">
     <div class="main-card row">
 

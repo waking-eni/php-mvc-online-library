@@ -82,6 +82,16 @@ function validate() {
 }
 
 </script>
+
+<?php
+    //does the admin exist
+    $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    if(strpos($actual_link, 'nouser')) {
+        echo '<script>document.getElementById("adminMailName").innerHTML = "Admin doesn\'t exist";</script>';
+    }
+
+?>
+
 </body>
 
 </html>

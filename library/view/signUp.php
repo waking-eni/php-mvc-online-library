@@ -15,8 +15,6 @@
     crossorigin="anonymous"></script>
     <!-- STYLE -->
     <link href="../css/style.css" rel="stylesheet" />
-    <!-- JQUERY -->
-    <script href="../assets/js/jquery-3.5.1.js"></script>
     <title>Online Library</title>
 </head>
 

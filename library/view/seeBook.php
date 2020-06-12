@@ -100,10 +100,7 @@
                     echo '</div>';
 
                     $_SESSION['bookId'] = stripslashes($value['id']);
-                    $_SESSION['bookAuthor'] = stripslashes($value['author_id']);
-                    $_SESSION['bookName'] = stripslashes($value['name']);
                 }
-
             }
 
             ?>

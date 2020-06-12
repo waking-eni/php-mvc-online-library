@@ -1,7 +1,5 @@
 <?php
-
 session_status() === PHP_SESSION_ACTIVE ? TRUE : session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -20,9 +18,9 @@ session_status() === PHP_SESSION_ACTIVE ? TRUE : session_start();
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
     crossorigin="anonymous"></script>
     <!-- STYLE -->
-    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
     <!-- JQUERY -->
-    <script href="../assets/js/jquery-3.5.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Online Library</title>
 </head>
 
@@ -34,19 +32,27 @@ session_status() === PHP_SESSION_ACTIVE ? TRUE : session_start();
 ?>
 <!-- HEADER END -->
 
-<!-- MAIN -->
-<div class="wrapper">
+<!-- WRAPPER -->
+<div class="container-fluid wrapper-container">
+    <div class="row row-wrapper mt-5">
 
-<!-- SIDEBAR -->
-<?php
-    include 'includes/sidebar.php';
-?>
-<!-- SIDEBAR END -->
+        <!-- SIDEBAR -->
+        <?php
+            include 'includes/sidebar.php';
+        ?>
+        <!-- SIDEBAR END -->
 
+
+        <!-- MAIN -->
+        <main class="col-9 main">
+
+        </main>
+        <!-- MAIN END -->
+
+    </div>
 </div>
-<!-- MAIN END -->
+<!-- WRAPPER END -->
 
-<script href="../assets/js/effects.js"></script>
 </body>
 
 </html>

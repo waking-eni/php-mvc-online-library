@@ -44,7 +44,7 @@
 
         <h1 class="text-center mt-5">User Log In</h1>
 
-        <form class="center-div" name="loginForm" action="../includes/loginuser.inc.php" method="post" onsubmit="return(validate());">
+        <form class="center-div" name="loginForm" action="../inc.scripts/loginuser.inc.php" method="post" onsubmit="return(validate());">
             <div class="form-group">
                 <input  class="form-control" type="text" name="mailuid" placeholder="E-mail/Username">
                 <p id="userMailName"></p>

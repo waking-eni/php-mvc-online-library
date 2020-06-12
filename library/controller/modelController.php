@@ -70,4 +70,10 @@ Class ModelController {
         }
     }
 
+    //count the number of rows found matching a specific query
+    public function numRows($sql) {
+        $numRows = $this->con->query($sql);
+        return $numRows->num_rows;
+    }
+
 }

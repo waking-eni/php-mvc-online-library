@@ -95,8 +95,8 @@ require_once __DIR__.'/../controller/bookController.php';
             ?>
 
             <!--pagination-->
-            <div class="navbar navbar-expand navbar-dark bg-dark 
-                    d-flex justify-content-center">
+            <div class="navbar navbar-expand navbar-light 
+                    d-flex justify-content-center fixed-bottom" style="background-color: #ECE8E9;">
 
                     <ul class="pagination navbar-nav">
                         <?php if($page_no > 1){

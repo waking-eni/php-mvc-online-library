@@ -3,55 +3,58 @@
 session_status() === PHP_SESSION_ACTIVE ? TRUE : session_start();
 
 if(isset($_POST['signup-submit'])) {
-    require_once __DIR__.'/../controller/userController.php';
+	require_once __DIR__.'/../controller/userController.php';
+	require_once __DIR__.'/../model/user.php';
+
+	$userController = new UserController();
+	$userTable = new User();
+	$userTable->registerDate = date('Y-m-d H:i:s');
+	
+	$userTable->fullname = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['ufull']);
+	$userTable->username = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['uid']);
+	$userTable->email = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['mail']);
+	$userTable->phone = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['uphone']);
     
-    $fullname = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['ufull']);
-	$username = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['uid']);
-    $email = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['mail']);
-    $phone = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['uphone']);
 	$password = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['pwd']);
     $passwordRepeat = str_replace(array(':', '-', '/', '*', '<', '>'), '', $_POST['pwdrepeat']);
-    
-    $userController = new UserController();
-    $registerDate = date('Y-m-d H:i:s');
 	
 	/*error handlers */
 
-	if(empty($fullname) || empty($username) || empty($email) || empty($phone) || empty($password) || empty($passwordRepeat) ) {
-		header("Location: ../view/signUp.php?error=emptyfields&fullname=".$fullname."&uid=".$username."&mail=".$email."&phone=".$phone);
+	if(empty($userTable->fullname) || empty($userTable->username) || empty($userTable->email) || empty($userTable->phone) || empty($password) || empty($passwordRepeat) ) {
+		header("Location: ../view/signUp.php?error=emptyfields&fullname=".$userTable->fullname."&uid=".$userTable->username."&mail=".$userTable->email."&phone=".$userTable->phone);
 		exit();
 	}
-	else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
+	else if(!filter_var($userTable->email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $userTable->username)) {
 		header("Location: ../view/signUp.php?error=invalidmailuid");
 		exit();
 	}
 	//check for invalid email
-	else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		header("Location: ../view/signUp.php?error=invalidmail&uid=".$username);
+	else if(!filter_var($userTable->email, FILTER_VALIDATE_EMAIL)) {
+		header("Location: ../view/signUp.php?error=invalidmail&uid=".$userTable->username);
 		exit();
 	}
 	//check for invalid username
-	else if(!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-		header("Location: ../view/signUp.php?error=invaliduid&mail=".$email);
+	else if(!preg_match("/^[a-zA-Z0-9]*$/", $userTable->username)) {
+		header("Location: ../view/signUp.php?error=invaliduid&mail=".$userTable->email);
 		exit();
 	}
 	//are the two password fields matching
 	else if($password !== $passwordRepeat) {
-		header("Location: ../view/signUp.php?error=passwordcheck&uid=".$username."&mail=".$email);
+		header("Location: ../view/signUp.php?error=passwordcheck&uid=".$userTable->username."&mail=".$userTable->email);
 		exit();
 	}
 	else {
 		//does the chosen username already exist
-		$resultCheck = $userController->checkUsername($username);
+		$resultCheck = $userController->checkUsername($userTable->username);
 		if(!empty($resultCheck)) {
-			header("Location: ../view/signUp.php?error=usertaken&mail=".$email);
+			header("Location: ../view/signUp.php?error=usertaken&mail=".$userTable->email);
 			exit();
 		} else {
-            //insert
-            $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+			//insert
+			$userTable->password = password_hash($password, PASSWORD_DEFAULT);
             //send values by reference because call_user_func_array expects it
-            $values = array(&$fullname, &$username, &$hashedPwd, &$email, &$phone, &$registerDate);
-            $userController->insertUser($values);
+            //$values = array(&$fullname, &$username, &$hashedPwd, &$email, &$phone, &$registerDate);
+            $userController->insertUser($userTable);
             header("Location: ../view/loginUser.php?signup=success");
             exit();
 		}

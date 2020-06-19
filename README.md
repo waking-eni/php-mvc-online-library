@@ -3,7 +3,7 @@ Online library\
 OOP PHP, MVC, HTML, CSS, JavaScript, Bootstrap, MySQL, WampServer\
 Back-end: OOP PHP and MySQL for the database.\
 Design pattern: MVC (without a framework).\
-Front-end: CSS, Bootstrap, JavaScript.\
+Front-end: HTML, CSS, Bootstrap, JavaScript.\
 Server: Apache (using WampServer).
 ***
 In progress.
